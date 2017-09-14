@@ -9,6 +9,6 @@ class  Address
   end
 
   def to_s
-    "#{@type}\n#{@street}\n#{@city}, #{@state}. #{zip}"
+    "#{@type}\n#{@street}\n#{@city}, #{@state}. #{@zip}"
   end
 end

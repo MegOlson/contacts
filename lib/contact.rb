@@ -7,8 +7,8 @@ class Contact
   # class NoIdError < StandardError
   # end
 
-  attr_accessor :first_name, :last_name, :job_title, :company, :type
-  attr_reader :addresses, :phone_numbers, :contacts, :id
+  attr_accessor :first_name, :last_name, :job_title, :company, :type,:addresses, :phone_numbers
+  attr_reader :contacts, :id
 
   def initialize(attributes)
     @first_name = attributes.fetch(:first_name)
@@ -29,16 +29,12 @@ class Contact
     "#{@last_name}, #{@first_name}"
   end
 
-  def add_address(type, street, city, state, zip)
-    address = Address.new(:type => type, :street => street, :city => city, :state => state, :zip => zip)
+  def add_address(address)
     @addresses.push(address)
   end
 
-  def add_phone_number(kind, number)
-    new_number = PhoneNumber.new
-    new_number.kind = kind
-    new_number.number = number
-    @phone_numbers.push(new_number)
+  def add_phone_number(phone_number)
+    @phone_numbers.push(phone_number)
   end
 
   def self.all

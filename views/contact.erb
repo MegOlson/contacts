@@ -1,5 +1,48 @@
-<h1><%= @contact.last_first %></h1>
-<h3>Type: <%= @contact.type %></h3>
-<h3>Company: <%= @contact.company %></h3>
-<h3>Job Title: <%= @contact.job_title %></h3>
+<h1><%= @contact[0].last_first %></h1>
+<h3>Type: <%= @contact[0].type %></h3>
+<h3>Company: <%= @contact[0].company %></h3>
+<h3>Job Title: <%= @contact[0].job_title %></h3> <br>
+<h3>Address(es)</h3>
+
+<% if @contact[0].addresses.length > 0 %>
+  <% @contact[0].addresses.each do |address| %>
+    <%= address.to_s %>
+  <% end %>
+<% end %>
+
+<h3>Phone Number(s)</h3>
+<% if @contact[0].phone_numbers.length > 0 %>
+  <% @contact[0].phone_numbers.each do |phone_number| %>
+    <%= phone_number.to_s %>
+  <% end %>
+<% end %>
+
+<button type="button" name="button" class="btn">
 <a href="/">Return to list</a>
+</button><br><br><br><br><br><br><br><br>
+<form class="" action="/contact" method="post">
+  <div class="form-group">
+    <h3>Phone Number</h3>
+    <label for="number">Number:</label>
+    <input id="number" type="text" name="number">
+    <select class="form-control" name="number_type">
+      <option value="home">Home</option>
+      <option value="work">Work</option>
+      <option value="cell">Cell</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <h3>Address:</h3>
+    <label for="address_type">Type:</label>
+    <input id="address_type" type="text" name="address_type">
+    <label for="street">Street:</label>
+    <input id="street" type="text" name="street">
+    <label for="city">City:</label>
+    <input id="city" type="text" name="city">
+    <label for="state">State:</label>
+    <input id="state" type="text" name="state">
+    <label for="zip">Zip Code:</label>
+    <input id="zip" type="text" name="zip">
+  </div>
+  <button type="submit" name="button" class="btn">Add</button>
+</form>
