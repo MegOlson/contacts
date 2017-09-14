@@ -25,4 +25,10 @@ describe 'Address' do
       expect(my_address.zip).to eq "98101"
     end
   end
+
+  describe '#to_s' do
+    it "has a user friendly readable address" do
+      expect(my_address.to_s).to eq "Home\n1020 University #305\nSeattle, WA. 98101"
+    end
+  end
 end
