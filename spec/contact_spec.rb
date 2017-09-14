@@ -24,6 +24,10 @@ describe 'Contact' do
     it 'will have a readable type' do
       expect(new_contact.type).to eq 'business'
     end
+
+    it 'will add a readable address list' do
+      expect(new_contact.addresses).to be_an Array
+    end
   end
 
   describe '#full_name' do
@@ -35,6 +39,12 @@ describe 'Contact' do
   describe '#last_first' do
     it 'will return the full name last name first' do
       expect(new_contact.last_first).to eq 'Belmonti, Elrey'
+    end
+  end
+
+  describe '#add_address' do
+    it 'will add address to address list' do
+      expect{ new_contact.add_address("Home", "1020 University #305", "Seattle", "WA", "98101") }.to change{ new_contact.addresses.length }.from(0).to(1)
     end
   end
 
