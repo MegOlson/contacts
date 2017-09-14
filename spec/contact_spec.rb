@@ -25,4 +25,10 @@ describe 'Contact' do
       expect(new_contact.type).to eq 'business'
     end
   end
+
+  describe '#full_name' do
+    it 'will return the full name' do
+      expect(new_contact.full_name).to eq 'Elrey Belmonti'
+    end
+  end
 end
