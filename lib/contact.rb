@@ -38,6 +38,10 @@ class Contact
   end
 
   def self.all
-    @@contacts 
+    @@contacts
+  end
+
+  def save
+    @@contacts.push(self)
   end
 end

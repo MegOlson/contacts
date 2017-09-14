@@ -64,4 +64,10 @@ describe 'Contact' do
     end
   end
 
+  describe '#save' do
+    it 'saves as contact to the list of contacts' do
+      expect{ new_contact.save }.to change{ Contact.all.length }.from(0).to(1)
+    end
+  end
+
 end
