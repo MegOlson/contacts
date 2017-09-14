@@ -28,6 +28,10 @@ describe 'Contact' do
     it 'will add a readable address list' do
       expect(new_contact.addresses).to be_an Array
     end
+
+    it 'will add a readable phone number list' do
+      expect(new_contact.phone_numbers).to be_an Array
+    end
   end
 
   describe '#full_name' do
@@ -45,6 +49,12 @@ describe 'Contact' do
   describe '#add_address' do
     it 'will add address to address list' do
       expect{ new_contact.add_address("Home", "1020 University #305", "Seattle", "WA", "98101") }.to change{ new_contact.addresses.length }.from(0).to(1)
+    end
+  end
+
+  describe '#add_phone_number' do
+    it 'will add phone number to phone numberlist' do
+      expect{ new_contact.add_phone_number("Home", "215.345.9876") }.to change{ new_contact.phone_numbers.length }.from(0).to(1)
     end
   end
 

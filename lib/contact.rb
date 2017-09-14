@@ -1,6 +1,9 @@
-class Contact < Address
+require 'phone_number'
+require 'address'
+
+class Contact
   attr_accessor :first_name, :last_name, :job_title, :company, :type
-  attr_reader :addresses
+  attr_reader :addresses, :phone_numbers
   def initialize(attributes)
     @first_name = attributes.fetch(:first_name)
     @last_name = attributes.fetch(:last_name)
@@ -8,6 +11,7 @@ class Contact < Address
     @company = attributes.fetch(:company)
     @type = attributes.fetch(:type)
     @addresses = []
+    @phone_numbers = []
   end
 
   def full_name
@@ -21,5 +25,12 @@ class Contact < Address
   def add_address(type, street, city, state, zip)
     address = Address.new(:type => type, :street => street, :city => city, :state => state, :zip => zip)
     @addresses.push(address)
+  end
+
+  def add_phone_number(kind, number)
+    new_number = PhoneNumber.new
+    new_number.kind = kind
+    new_number.number = number
+    @phone_numbers.push(new_number)
   end
 end
