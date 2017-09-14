@@ -44,4 +44,8 @@ class Contact
   def save
     @@contacts.push(self)
   end
+
+  def self.clear
+    @@contacts = []
+  end
 end

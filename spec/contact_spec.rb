@@ -2,6 +2,9 @@ require 'rspec'
 require 'contact'
 
 describe 'Contact' do
+  before do
+    Contact.clear
+  end
   let(:new_contact) { Contact.new(:first_name => "Elrey", :last_name => "Belmonti", :job_title => "Web Developer", :company => "apieceofstar", :type => "business") }
 
   describe '#initialize' do
@@ -67,6 +70,13 @@ describe 'Contact' do
   describe '#save' do
     it 'saves as contact to the list of contacts' do
       expect{ new_contact.save }.to change{ Contact.all.length }.from(0).to(1)
+    end
+  end
+
+  describe '.clear' do
+    it 'clears all contacts from list' do
+      new_contact.save
+      expect{ Contact.clear }.to change{ Contact.all.length }.from(1).to(0)
     end
   end
 
