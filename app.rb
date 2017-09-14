@@ -28,7 +28,7 @@ get('/contact/:id') do
   erb(:contact)
 end
 
-post('/contact') do
+post('/contact/:id') do
   @contact = Contact.find(params[:id])
   number = params["number"]
   number_type = params["number_type"]
@@ -42,8 +42,8 @@ post('/contact') do
   new_number.kind = number_type
   new_number.number = number
   # binding.pry
-  @contact[0].add_phone_number(new_number)
-  @contact[0].add_address(new_address)
+  @contact.add_phone_number(new_number)
+  @contact.add_address(new_address)
 
   erb(:contact)
 end

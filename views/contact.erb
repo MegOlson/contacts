@@ -1,18 +1,18 @@
-<h1><%= @contact[0].last_first %></h1>
-<h3>Type: <%= @contact[0].type %></h3>
-<h3>Company: <%= @contact[0].company %></h3>
-<h3>Job Title: <%= @contact[0].job_title %></h3> <br>
+<h1><%= @contact.last_first %></h1>
+<h3>Type: <%= @contact.type %></h3>
+<h3>Company: <%= @contact.company %></h3>
+<h3>Job Title: <%= @contact.job_title %></h3> <br>
 <h3>Address(es)</h3>
 
-<% if @contact[0].addresses.length > 0 %>
-  <% @contact[0].addresses.each do |address| %>
+<% if @contact.addresses.length > 0 %>
+  <% @contact.addresses.each do |address| %>
     <%= address.to_s %>
   <% end %>
 <% end %>
 
 <h3>Phone Number(s)</h3>
-<% if @contact[0].phone_numbers.length > 0 %>
-  <% @contact[0].phone_numbers.each do |phone_number| %>
+<% if @contact.phone_numbers.length > 0 %>
+  <% @contact.phone_numbers.each do |phone_number| %>
     <%= phone_number.to_s %>
   <% end %>
 <% end %>
@@ -20,7 +20,7 @@
 <button type="button" name="button" class="btn">
 <a href="/">Return to list</a>
 </button><br><br><br><br><br><br><br><br>
-<form class="" action="/contact" method="post">
+<form class="" action="/contact/<%= @contact.id %>" method="post">
   <div class="form-group">
     <h3>Phone Number</h3>
     <label for="number">Number:</label>
