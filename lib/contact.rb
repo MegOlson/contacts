@@ -2,8 +2,11 @@ require 'phone_number'
 require 'address'
 
 class Contact
+  @@contacts = []
+
   attr_accessor :first_name, :last_name, :job_title, :company, :type
-  attr_reader :addresses, :phone_numbers
+  attr_reader :addresses, :phone_numbers, :contacts
+
   def initialize(attributes)
     @first_name = attributes.fetch(:first_name)
     @last_name = attributes.fetch(:last_name)
@@ -32,5 +35,9 @@ class Contact
     new_number.kind = kind
     new_number.number = number
     @phone_numbers.push(new_number)
+  end
+
+  def self.all
+    @@contacts 
   end
 end
