@@ -31,4 +31,11 @@ describe 'Contact' do
       expect(new_contact.full_name).to eq 'Elrey Belmonti'
     end
   end
+
+  describe '#last_first' do
+    it 'will return the full name last name first' do
+      expect(new_contact.last_first).to eq 'Belmonti, Elrey'
+    end
+  end
+
 end
