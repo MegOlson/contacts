@@ -7,7 +7,6 @@ describe('contact', {:type => :feature}) do
   before do
     Contact.clear
   end
-
   it 'displays contact on page' do
     visit('/')
     fill_in('type', :with => 'Business')
@@ -17,5 +16,11 @@ describe('contact', {:type => :feature}) do
     fill_in('company', :with => 'apieceofstar')
     click_button('Add Contact')
     expect(page).to have_content("Elrey Belmonti")
+  end
+end
+describe('contact', {:type => :feature}) do
+  it 'displays contact details on contact page' do
+    visit('/contact/1')
+    expect(page).to have_content("Belmonti, Elrey", "Web Developer", "apieceofstar", "Business")
   end
 end
