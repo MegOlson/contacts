@@ -7,6 +7,8 @@ describe 'Contact' do
   end
   let(:new_contact) { Contact.new(:first_name => "Elrey", :last_name => "Belmonti", :job_title => "Web Developer", :company => "apieceofstar", :type => "business") }
 
+  let(:new_contact2) { Contact.new(:first_name => "Oscar", :last_name => "Bartra", :job_title => "Web Developer", :company => "Axon", :type => "business") }
+
   describe '#initialize' do
     it 'will have a readable first name' do
       expect(new_contact.first_name).to eq 'Elrey'
@@ -80,4 +82,11 @@ describe 'Contact' do
     end
   end
 
+  describe '#id' do
+    it 'increments an id by 1' do
+      new_contact.save
+      new_contact2.save
+      expect(new_contact2.id).to eq 2
+    end
+  end
 end

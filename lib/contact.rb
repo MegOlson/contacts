@@ -5,7 +5,7 @@ class Contact
   @@contacts = []
 
   attr_accessor :first_name, :last_name, :job_title, :company, :type
-  attr_reader :addresses, :phone_numbers, :contacts
+  attr_reader :addresses, :phone_numbers, :contacts, :id
 
   def initialize(attributes)
     @first_name = attributes.fetch(:first_name)
@@ -15,6 +15,7 @@ class Contact
     @type = attributes.fetch(:type)
     @addresses = []
     @phone_numbers = []
+    @id = @@contacts.length + 1
   end
 
   def full_name
