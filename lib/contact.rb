@@ -1,5 +1,5 @@
-require 'phone_number'
-require 'address'
+# require 'address'
+# require 'phone_number'
 
 class Contact
   @@contacts = []

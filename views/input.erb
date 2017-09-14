@@ -1,0 +1,28 @@
+<h1>Enter new contact information</h1>
+<form class="" action="/" method="post">
+  <div class="form-group">
+    <label for="type">Contact Type:</label>
+    <input id="type" type="text" name="type">
+  </div>
+  <div class="form-group">
+    <label for="first_name">First Name:</label>
+    <input id="first_name" type="text" name="first_name">
+  </div>
+  <div class="form-group">
+    <label for="last_name">Last Name:</label>
+    <input id="last_name" type="text" name="last_name">
+  </div>
+  <div class="form-group">
+    <label for="job_title">Job Title:</label>
+    <input id="job_title" type="text" name="job_title">
+  </div>
+  <div class="form-group">
+    <label for="company">Company:</label>
+    <input id="company" type="text" name="company">
+  </div>
+  <button type="submit" class="btn">Add Contact</button>
+</form>
+
+<% @contacts.each do |contact| %>
+  <h4><a href="/contacts/<%= contact.id %>"><%= contact.full_name %></a></h4>
+<% end %>
