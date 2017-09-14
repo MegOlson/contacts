@@ -5,6 +5,7 @@ describe 'Contact' do
   before do
     Contact.clear
   end
+  
   let(:new_contact) { Contact.new(:first_name => "Elrey", :last_name => "Belmonti", :job_title => "Web Developer", :company => "apieceofstar", :type => "business") }
 
   let(:new_contact2) { Contact.new(:first_name => "Oscar", :last_name => "Bartra", :job_title => "Web Developer", :company => "Axon", :type => "business") }
@@ -89,4 +90,23 @@ describe 'Contact' do
       expect(new_contact2.id).to eq 2
     end
   end
+
+  describe '.find' do
+    it 'finds a contact based on its id' do
+      new_contact.save
+      new_contact2.save
+      p Contact.all.length
+      p new_contact2.id
+      expect(Contact.find(1)).to eq new_contact
+    end
+
+    it 'finds a contact based on its id' do
+      new_contact.save
+      new_contact2.save
+      p Contact.all.length
+      p new_contact2.id
+      expect(Contact.find(2)).to eq new_contact2
+    end
+  end
+
 end

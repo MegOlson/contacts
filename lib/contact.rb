@@ -4,6 +4,9 @@ require 'address'
 class Contact
   @@contacts = []
 
+  # class NoIdError < StandardError
+  # end
+
   attr_accessor :first_name, :last_name, :job_title, :company, :type
   attr_reader :addresses, :phone_numbers, :contacts, :id
 
@@ -48,5 +51,16 @@ class Contact
 
   def self.clear
     @@contacts = []
+  end
+
+  def self.find(id)
+    contact_id = id.to_i
+    @@contacts.each do |contact|
+      if contact.id == contact_id
+        return contact
+      # else
+      #   raise NoIdError "Id does not exits"
+      end
+    end
   end
 end
