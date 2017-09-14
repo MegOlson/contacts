@@ -1,5 +1,5 @@
-class  Address 
-  attr_reader :type, :street, :city, :state, :zip
+class  Address
+  attr_accessor :type, :street, :city, :state, :zip
   def initialize(args)
     @type = args.fetch(:type)
     @street = args.fetch(:street)
